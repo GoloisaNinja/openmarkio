@@ -29,7 +29,7 @@ import db, {
 	getAuth,
 	signInWithPopup,
 	signOut,
-	GoogleAuthProvider,
+	//GoogleAuthProvider,
 } from '../../Firebase/firebase';
 
 const Toolbar = ({
@@ -137,8 +137,8 @@ const Toolbar = ({
 		signInWithPopup(auth, provider)
 			.then((result) => {
 				// get user and LOGIN
-				const credential = GoogleAuthProvider.credentialFromResult(result);
-				const token = credential.accessToken;
+				//const credential = GoogleAuthProvider.credentialFromResult(result);
+				//const token = credential.accessToken;
 				const user = result.user;
 				loginUser(user);
 				handleCreate(user);

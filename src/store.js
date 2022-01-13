@@ -13,10 +13,8 @@ const store = createStore(
 	composeWithDevTools(applyMiddleware(...middleware))
 );
 
-let currentState = store.getState();
-
 store.subscribe(() => {
-	currentState = store.getState();
+	console.log(store.getState());
 });
 
 export default store;
