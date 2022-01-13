@@ -17,19 +17,15 @@ import {
 	MdClose,
 } from 'react-icons/md';
 import { BiHash } from 'react-icons/bi';
+import { ImGoogle3 } from 'react-icons/im';
 import styles from './toolbar.module.scss';
 import db, {
 	ref,
-	getDatabase,
-	onValue,
 	set,
-	get,
-	child,
 	provider,
 	getAuth,
-	signInWithPopup,
+	signInWithRedirect,
 	signOut,
-	//GoogleAuthProvider,
 } from '../../Firebase/firebase';
 
 const Toolbar = ({
@@ -98,66 +94,20 @@ const Toolbar = ({
 	const copyMarkdown = () => {
 		navigator.clipboard.writeText(text);
 	};
-	// CREATES A USER IN THE DB IF USER DOESN'T ALREADY
-	const handleCreate = (user) => {
-		// CHECK IF THE USER NEEDS TO BE CREATED IN DB
-		const dbRef = ref(getDatabase());
-		get(child(dbRef, `users/${user.uid}`))
-			.then((snapshot) => {
-				if (!snapshot.exists()) {
-					set(ref(db, `users/${user.uid}`), {
-						name: user.displayName,
-						theme: 'default',
-					});
-				}
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	};
-	// GETS ARTICLE TITLES TO POPULATE SIDEBAR MENU (ADDS ARTICLES TO REDUX STATE)
-	const handleGetArticles = (uid) => {
-		const articleRef = ref(db, `users/${uid}/articles`);
-		onValue(articleRef, (snapshot) => {
-			let articles = [];
-			snapshot.forEach((childSnapshot) => {
-				articles.push({
-					id: childSnapshot.key,
-					...childSnapshot.val(),
-				});
-			});
-			if (articles.length > 0) {
-				loadArticles(articles);
-			}
-		});
-	};
+
 	// LOGIN FUNCTION FOR GOOGLE SIGN IN WITH POP UP
 	const handleLogin = () => {
+		console.log('handle login called');
 		const auth = getAuth();
-		signInWithPopup(auth, provider)
-			.then((result) => {
-				// get user and LOGIN
-				//const credential = GoogleAuthProvider.credentialFromResult(result);
-				//const token = credential.accessToken;
-				const user = result.user;
-				loginUser(user);
-				handleCreate(user);
-				handleGetArticles(user.uid);
-			})
-			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				const email = error.email;
-				console.log(
-					`error code: ${errorCode}, message: ${errorMessage}, user: ${email}`
-				);
-			});
+		signInWithRedirect(auth, provider);
 	};
+
 	// I MEAN - THIS LOGS YOU OUT...
 	const handleLogout = () => {
 		const auth = getAuth();
 		signOut(auth)
 			.then(() => {
+				console.log('logging out');
 				logoutUser();
 			})
 			.catch((error) => {
@@ -233,7 +183,7 @@ const Toolbar = ({
 						</button>
 					) : (
 						<button onClick={(e) => handleLogin()}>
-							<MdLogin />
+							<ImGoogle3 />
 						</button>
 					)}
 				</div>

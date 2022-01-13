@@ -3,9 +3,11 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, onValue, set, get, child } from 'firebase/database';
 import {
 	getAuth,
-	signInWithPopup,
+	signInWithRedirect,
+	getRedirectResult,
 	signOut,
 	GoogleAuthProvider,
+	onAuthStateChanged,
 } from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -39,9 +41,11 @@ export {
 	child,
 	onValue,
 	getAuth,
-	signInWithPopup,
+	signInWithRedirect,
+	getRedirectResult,
 	signOut,
 	GoogleAuthProvider,
 	provider,
+	onAuthStateChanged,
 	db as default,
 };

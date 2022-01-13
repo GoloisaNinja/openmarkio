@@ -22,6 +22,7 @@ function App() {
 	const togglePreview = () => {
 		setShowPreview(!showPreview);
 	};
+
 	return (
 		<Provider store={store}>
 			<div style={styles.container}>
