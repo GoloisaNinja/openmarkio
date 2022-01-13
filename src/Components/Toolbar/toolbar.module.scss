@@ -1,0 +1,150 @@
+.btn_style {
+	background: none;
+	border: none;
+	color: #ccc;
+	cursor: pointer;
+	transition: all 0.4s ease-in-out;
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+	> svg {
+		font-size: 20px;
+	}
+	&:hover {
+		color: #fff;
+	}
+}
+.input_style {
+	background: none;
+	border: none;
+	outline: none;
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	font-weight: 900;
+	color: #ccc;
+	max-width: 100%;
+}
+.toolbar {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	background-color: #333333;
+	padding: 8px;
+	position: fixed;
+}
+.toolbar_sm {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	> input {
+		@extend .input_style;
+	}
+	> button {
+		@extend .btn_style;
+	}
+	> button.btn_hidden {
+		visibility: hidden;
+	}
+	@media (min-width: 751px) {
+		display: none;
+	}
+}
+.toolbar_lg {
+	display: flex;
+	width: 100%;
+	> input {
+		@extend .input_style;
+	}
+	> button {
+		@extend .btn_style;
+	}
+	> div:last-child {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+		> button {
+			@extend .btn_style;
+		}
+		> button:first-child {
+			@media (min-width: 1000px) {
+				display: none;
+			}
+		}
+	}
+	@media (max-width: 750px) {
+		display: none;
+	}
+}
+.toolbar_open {
+	@extend .toolbar;
+	width: calc(100% - 250px);
+}
+
+.article_menu {
+	display: flex;
+	flex-direction: column;
+	> div:first-child {
+		display: flex;
+		justify-content: right;
+		> button {
+			@extend .btn_style;
+			color: #303030;
+			padding: 8px;
+			> svg {
+				font-size: 30px;
+			}
+		}
+	}
+	> div:last-child {
+		padding: 20px;
+	}
+}
+
+.toolbar_menu {
+	display: flex;
+	flex-direction: column;
+	> div:first-child {
+		> button {
+			@extend .btn_style;
+			padding: 8px;
+			> svg {
+				font-size: 30px;
+			}
+		}
+	}
+	> div:nth-child(2) {
+		display: flex;
+		justify-content: space-evenly;
+		margin-top: 25px;
+		> button {
+			@extend .btn_style;
+			> svg {
+				color: tomato;
+				vertical-align: bottom;
+			}
+		}
+	}
+	> div:last-child {
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+		margin-top: 25px;
+		> button {
+			display: flex;
+			justify-content: left;
+			margin-bottom: 5px;
+			@extend .btn_style;
+			> svg {
+				color: tomato;
+			}
+		}
+	}
+}
+.btn_span {
+	margin-left: 12px;
+	margin-top: 3px;
+	text-align: left;
+}

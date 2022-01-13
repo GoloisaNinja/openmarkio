@@ -1,0 +1,29 @@
+.btn_style {
+	background: none;
+	border: none;
+	color: #ccc;
+	cursor: pointer;
+	transition: all 0.4s ease-in-out;
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+	> svg {
+		font-size: 20px;
+	}
+	&:hover {
+		color: #fff;
+	}
+}
+
+.btn_sm_hide {
+	@extend .btn_style;
+	@media (max-width: 1000px) {
+		display: none;
+	}
+}
+.btn_span {
+	margin-left: 12px;
+	margin-top: 3px;
+	text-align: left;
+}

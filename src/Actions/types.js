@@ -1,0 +1,7 @@
+export const UPDATE_TEXT = 'UPDATE_TEXT';
+export const LOGIN_USER = 'LOGIN_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';
+export const LOAD_ARTICLES = 'LOAD_ARTICLES';
+export const SET_ARTICLE = 'SET_ARTICLE';
+export const CLEAR_ARTICLES = 'CLEAR_ARTICLES';
+export const START_NEW_ARTICLE = 'START_NEW_ARTICLE';

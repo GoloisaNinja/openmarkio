@@ -1,0 +1,26 @@
+.overlay {
+	display: flex;
+	flex-direction: column;
+	width: 0%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 3;
+	background: #333333;
+	opacity: 0.99;
+	//overflow-y: scroll;
+	visibility: hidden;
+	transition: opacity 0.35s, width 0.2s ease, visibility 0.2s;
+}
+.overlay_active {
+	@extend .overlay;
+	width: 100%;
+	visibility: visible;
+	@media (min-width: 400px) {
+		width: 55%;
+	}
+	@media (min-width: 600px) {
+		width: 45%;
+	}
+}
