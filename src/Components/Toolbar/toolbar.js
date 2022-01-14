@@ -9,13 +9,7 @@ import ArticleOverlay from '../Overlay/articleOverlay';
 import MainButtonGroup from './mainButtonGroup';
 import ArticleMenu from '../ArticleMenu/articleMenu';
 import { nanoid } from 'nanoid';
-import {
-	MdFolder,
-	MdLogin,
-	MdLogout,
-	MdPreview,
-	MdClose,
-} from 'react-icons/md';
+import { MdFolder, MdLogout, MdPreview, MdClose } from 'react-icons/md';
 import { BiHash } from 'react-icons/bi';
 import { ImGoogle3 } from 'react-icons/im';
 import styles from './toolbar.module.scss';
@@ -244,7 +238,7 @@ const Toolbar = ({
 									toggleIconMenu();
 									handleLogin();
 								}}>
-								<MdLogin />
+								<ImGoogle3 />
 								<span className={styles.btn_span}>Login</span>
 							</button>
 						)}
