@@ -26,8 +26,6 @@ const Toolbar = ({
 	open,
 	handleSidebar,
 	article,
-	loadArticles,
-	loginUser,
 	logoutUser,
 	text,
 	updateText,
@@ -272,8 +270,6 @@ const Toolbar = ({
 Toolbar.propTypes = {
 	article: PropTypes.object,
 	startNewArticle: PropTypes.func.isRequired,
-	loadArticles: PropTypes.func.isRequired,
-	loginUser: PropTypes.func.isRequired,
 	logoutUser: PropTypes.func.isRequired,
 	text: PropTypes.string.isRequired,
 	updateText: PropTypes.func.isRequired,

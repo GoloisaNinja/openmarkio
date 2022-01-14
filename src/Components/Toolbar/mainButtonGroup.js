@@ -147,6 +147,7 @@ const MainButtonGroup = ({
 				{menu && <span className={styles.btn_span}>Insert Image</span>}
 			</button>
 			<button
+				className={open ? styles.btn_sm_hide : 'null'}
 				onClick={(e) => {
 					if (menu) {
 						toggleIconMenu();
@@ -158,6 +159,7 @@ const MainButtonGroup = ({
 			</button>
 			{uid && (
 				<button
+					className={open ? styles.btn_sm_hide : 'null'}
 					onClick={(e) => {
 						if (menu) {
 							toggleIconMenu();

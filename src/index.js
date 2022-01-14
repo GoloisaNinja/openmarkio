@@ -4,17 +4,29 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './store';
+import Loading from './Components/Loading/loading';
 import { getAuth, onAuthStateChanged, ref, onValue } from './Firebase/firebase';
 import db from './Firebase/firebase';
 import { loadArticles } from './Actions/articles';
 import { loginUser } from './Actions/auth';
 
-ReactDOM.render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>,
-	document.getElementById('root')
-);
+let hasRendered = false;
+
+const renderApp = () => {
+	if (!hasRendered) {
+		ReactDOM.render(<App />, document.getElementById('root'));
+		hasRendered = true;
+	}
+};
+
+ReactDOM.render(<Loading />, document.getElementById('root'));
+
+// ReactDOM.render(
+// 	<React.StrictMode>
+// 		<App />
+// 	</React.StrictMode>,
+// 	document.getElementById('root')
+// );
 
 // GETS ARTICLE TITLES TO POPULATE SIDEBAR MENU (ADDS ARTICLES TO REDUX STATE)
 const handleGetArticles = (uid) => {
@@ -43,6 +55,9 @@ onAuthStateChanged(auth, (user) => {
 	if (user) {
 		handleGetArticles(user.uid);
 		store.dispatch(loginUser(user));
+		renderApp();
+	} else {
+		renderApp();
 	}
 });
 
