@@ -135,6 +135,7 @@
 		> button {
 			display: flex;
 			justify-content: left;
+			margin-top: 5px;
 			margin-bottom: 5px;
 			@extend .btn_style;
 			> svg {
