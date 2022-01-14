@@ -88,7 +88,7 @@
 	flex-direction: column;
 	> div:first-child {
 		display: flex;
-		justify-content: right;
+		justify-content: flex-end;
 		> button {
 			@extend .btn_style;
 			color: #303030;
@@ -144,6 +144,7 @@
 	}
 }
 .btn_span {
+	font-size: 18px;
 	margin-left: 12px;
 	margin-top: 3px;
 	text-align: left;

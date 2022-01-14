@@ -4,7 +4,7 @@ import { setArticle } from '../../Actions/articles';
 import { get, child, getDatabase, ref } from '../../Firebase/firebase';
 import styles from './articleMenu.module.scss';
 
-const ArticleMenu = ({ articles, setArticle, user }) => {
+const ArticleMenu = ({ articles, setArticle, user, toggleArticleMenu }) => {
 	let name = '';
 	const fetchArticle = (id) => {
 		const dbRef = ref(getDatabase());
@@ -37,7 +37,10 @@ const ArticleMenu = ({ articles, setArticle, user }) => {
 						<button
 							className={styles.btn}
 							key={user_article.id}
-							onClick={(e) => fetchArticle(user_article.id)}>
+							onClick={(e) => {
+								toggleArticleMenu();
+								fetchArticle(user_article.id);
+							}}>
 							{user_article.title}
 						</button>
 					))}

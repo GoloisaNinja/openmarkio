@@ -215,7 +215,7 @@ const Toolbar = ({
 						</button>
 					</div>
 					<div className={styles.articlemenu_bottom}>
-						<ArticleMenu />
+						<ArticleMenu toggleArticleMenu={toggleArticleMenu} />
 					</div>
 				</div>
 			</ArticleOverlay>
@@ -229,17 +229,30 @@ const Toolbar = ({
 					</div>
 					<div className={styles.menu_logout}>
 						{user.uid ? (
-							<button disabled={open} onClick={(e) => handleLogout()}>
+							<button
+								disabled={open}
+								onClick={(e) => {
+									toggleIconMenu();
+									handleLogout();
+								}}>
 								<MdLogout />
 								<span className={styles.btn_span}>Logout</span>
 							</button>
 						) : (
-							<button onClick={(e) => handleLogin()}>
+							<button
+								onClick={(e) => {
+									toggleIconMenu();
+									handleLogin();
+								}}>
 								<MdLogin />
 								<span className={styles.btn_span}>Login</span>
 							</button>
 						)}
-						<button onClick={(e) => togglePreview()}>
+						<button
+							onClick={(e) => {
+								toggleIconMenu();
+								togglePreview();
+							}}>
 							<MdPreview />
 							<span className={styles.btn_span}>Toggle View</span>
 						</button>
@@ -250,6 +263,7 @@ const Toolbar = ({
 							handleInsertion={handleInsertion}
 							copyMarkdown={copyMarkdown}
 							handleArticleSave={handleArticleSave}
+							toggleIconMenu={toggleIconMenu}
 							open={open}
 							uid={user.uid}
 							menu={true}

@@ -22,6 +22,7 @@ const MainButtonGroup = ({
 	open,
 	uid,
 	menu,
+	toggleIconMenu,
 }) => {
 	// HELPER TEXT TO SHOW USERS HOW TO USE CERTAIN MARKDOWN SYNTAX BASED ON TOOLBAR ICONS
 	const insertionValues = {
@@ -38,66 +39,131 @@ const MainButtonGroup = ({
 
 	return (
 		<>
-			<button onClick={(e) => handleNewArticle()}>
+			<button
+				onClick={(e) => {
+					if (menu) {
+						toggleIconMenu();
+					}
+					handleNewArticle();
+				}}>
 				<MdInsertDriveFile />
 				{menu && <span className={styles.btn_span}>New Article</span>}
 			</button>
-			<button onClick={(e) => handleInsertion(insertionValues.header1)}>
+			<button
+				onClick={(e) => {
+					if (menu) {
+						toggleIconMenu();
+					}
+					handleInsertion(insertionValues.header1);
+				}}>
 				<MdTitle />
 				{menu && <span className={styles.btn_span}>Insert Header</span>}
 			</button>
-			<button onClick={(e) => handleInsertion(insertionValues.bold)}>
+			<button
+				onClick={(e) => {
+					if (menu) {
+						toggleIconMenu();
+					}
+					handleInsertion(insertionValues.bold);
+				}}>
 				<MdFormatBold />
 				{menu && <span className={styles.btn_span}>Insert Bold</span>}
 			</button>
 			<button
 				className={open ? styles.btn_sm_hide : 'null'}
-				onClick={(e) => handleInsertion(insertionValues.italics)}>
+				onClick={(e) => {
+					if (menu) {
+						toggleIconMenu();
+					}
+					handleInsertion(insertionValues.italics);
+				}}>
 				<MdFormatItalic />
 				{menu && <span className={styles.btn_span}>Insert Italic</span>}
 			</button>
 			<button
 				className={open ? styles.btn_sm_hide : 'null'}
-				onClick={(e) => handleInsertion(insertionValues.unorderedList)}>
+				onClick={(e) => {
+					if (menu) {
+						toggleIconMenu();
+					}
+					handleInsertion(insertionValues.unorderedList);
+				}}>
 				<MdFormatListBulleted />
 				{menu && <span className={styles.btn_span}>Insert Bullet List</span>}
 			</button>
 			<button
 				className={open ? styles.btn_sm_hide : 'null'}
-				onClick={(e) => handleInsertion(insertionValues.orderedList)}>
+				onClick={(e) => {
+					if (menu) {
+						toggleIconMenu();
+					}
+					handleInsertion(insertionValues.orderedList);
+				}}>
 				<MdFormatListNumbered />
 				{menu && <span className={styles.btn_span}>Insert Num List</span>}
 			</button>
 			<button
 				className={open ? styles.btn_sm_hide : 'null'}
-				onClick={(e) => handleInsertion(insertionValues.blockquote)}>
+				onClick={(e) => {
+					if (menu) {
+						toggleIconMenu();
+					}
+					handleInsertion(insertionValues.blockquote);
+				}}>
 				<MdFormatQuote />
 				{menu && <span className={styles.btn_span}>Insert Blockquote</span>}
 			</button>
 			<button
 				className={open ? styles.btn_sm_hide : 'null'}
-				onClick={(e) => handleInsertion(insertionValues.codeBlock)}>
+				onClick={(e) => {
+					if (menu) {
+						toggleIconMenu();
+					}
+					handleInsertion(insertionValues.codeBlock);
+				}}>
 				<MdCode />
 				{menu && <span className={styles.btn_span}>Insert Code Block</span>}
 			</button>
 			<button
 				className={open ? styles.btn_sm_hide : 'null'}
-				onClick={(e) => handleInsertion(insertionValues.link)}>
+				onClick={(e) => {
+					if (menu) {
+						toggleIconMenu();
+					}
+					handleInsertion(insertionValues.link);
+				}}>
 				<MdInsertLink />
 				{menu && <span className={styles.btn_span}>Insert Link</span>}
 			</button>
 			<button
 				className={open ? styles.btn_sm_hide : 'null'}
-				onClick={(e) => handleInsertion(insertionValues.image)}>
+				onClick={(e) => {
+					if (menu) {
+						toggleIconMenu();
+					}
+					handleInsertion(insertionValues.image);
+				}}>
 				<MdImage />
 				{menu && <span className={styles.btn_span}>Insert Image</span>}
 			</button>
-			<button onClick={(e) => copyMarkdown()}>
+			<button
+				onClick={(e) => {
+					if (menu) {
+						toggleIconMenu();
+					}
+					copyMarkdown();
+				}}>
 				<MdContentCopy />
 				{menu && <span className={styles.btn_span}>Copy Markdown</span>}
 			</button>
 			{uid && (
-				<button onClick={(e) => handleArticleSave()}>
+				<button
+					onClick={(e) => {
+						if (menu) {
+							toggleIconMenu();
+						}
+						handleArticleSave();
+					}}>
 					<MdSave />
 					{menu && <span className={styles.btn_span}>Save Article</span>}
 				</button>
