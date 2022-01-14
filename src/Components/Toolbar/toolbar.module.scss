@@ -33,6 +33,7 @@
 	background-color: #333333;
 	padding: 8px;
 	position: fixed;
+	height: 51px;
 }
 .toolbar_sm {
 	display: flex;
@@ -47,7 +48,7 @@
 	> button.btn_hidden {
 		visibility: hidden;
 	}
-	@media (min-width: 751px) {
+	@media (min-width: 801px) {
 		display: none;
 	}
 }
@@ -74,7 +75,7 @@
 			}
 		}
 	}
-	@media (max-width: 750px) {
+	@media (max-width: 800px) {
 		display: none;
 	}
 }

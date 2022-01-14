@@ -5,6 +5,8 @@ $pink-accent: #ff00aa;
 $purple-accent: #9a34c2;
 $orange-code: #ffcc00;
 $green-accent: #374b4f;
+$system-orange: #e34400;
+$system-hover: tomato;
 
 // Markdown styles
 .preview {
@@ -21,15 +23,17 @@ $green-accent: #374b4f;
 	}
 	a {
 		text-decoration: none;
-		color: $blue-accent;
+		color: $system-orange;
 		transition: all 0.5s ease-in-out;
 		&:hover {
-			color: $purple-accent;
+			color: $system-hover;
 		}
 	}
 
 	blockquote {
-		border-left: 3px solid $pink-accent;
+		border-left: 3px solid $system-orange;
+		background-color: #eee;
+		box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 		> p {
 			padding-left: 8px;
 		}
@@ -48,13 +52,14 @@ $green-accent: #374b4f;
 		background-color: #2a3152;
 		padding: 8px;
 		border-radius: 5px;
+		box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 	}
 
 	h1 {
-		border-bottom: 4px solid $purple-accent;
+		border-bottom: 4px solid $system-hover;
 	}
 	h2 {
-		border-bottom: 3px solid $purple-accent;
+		border-bottom: 2px solid $system-hover;
 	}
 
 	img {
