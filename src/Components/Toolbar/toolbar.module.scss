@@ -120,6 +120,9 @@
 		display: flex;
 		justify-content: space-evenly;
 		margin-top: 25px;
+		&.menu_logout_hidden {
+			display: none;
+		}
 		> button {
 			@extend .btn_style;
 			> svg {
@@ -127,12 +130,18 @@
 				vertical-align: bottom;
 			}
 		}
+		> button.btn_hidden {
+			display: none;
+		}
 	}
 	> div:last-child {
 		display: flex;
 		flex-direction: column;
 		margin: 0 auto;
 		margin-top: 25px;
+		&.menu_bottom_hidden {
+			display: none;
+		}
 		> button {
 			display: flex;
 			justify-content: left;

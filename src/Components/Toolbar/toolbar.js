@@ -219,7 +219,10 @@ const Toolbar = ({
 							<MdClose />
 						</button>
 					</div>
-					<div className={styles.menu_logout}>
+					<div
+						className={
+							iconOverlay ? styles.menu_logout : styles.menu_logout_hidden
+						}>
 						{user.uid ? (
 							<button
 								disabled={open}
@@ -249,7 +252,10 @@ const Toolbar = ({
 							<span className={styles.btn_span}>Toggle View</span>
 						</button>
 					</div>
-					<div className={styles.menu_bottom}>
+					<div
+						className={
+							iconOverlay ? styles.menu_bottom : styles.menu_bottom_hidden
+						}>
 						<MainButtonGroup
 							handleNewArticle={handleNewArticle}
 							handleInsertion={handleInsertion}
