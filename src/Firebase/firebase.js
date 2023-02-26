@@ -4,6 +4,7 @@ import { getDatabase, ref, onValue, set, get, child } from 'firebase/database';
 import {
 	getAuth,
 	signInWithRedirect,
+	signInWithPopup,
 	getRedirectResult,
 	signOut,
 	GoogleAuthProvider,
@@ -42,6 +43,7 @@ export {
 	onValue,
 	getAuth,
 	signInWithRedirect,
+	signInWithPopup,
 	getRedirectResult,
 	signOut,
 	GoogleAuthProvider,

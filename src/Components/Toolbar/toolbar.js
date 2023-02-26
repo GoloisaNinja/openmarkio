@@ -18,7 +18,8 @@ import db, {
 	set,
 	provider,
 	getAuth,
-	signInWithRedirect,
+	//signInWithRedirect, iOS 16+ auth issues makes this return empty user - popup quick fix for now
+	signInWithPopup,
 	signOut,
 } from '../../Firebase/firebase';
 
@@ -91,7 +92,7 @@ const Toolbar = ({
 	const handleLogin = () => {
 		console.log('handle login called');
 		const auth = getAuth();
-		signInWithRedirect(auth, provider);
+		signInWithPopup(auth, provider);
 	};
 
 	// I MEAN - THIS LOGS YOU OUT...
